@@ -40,4 +40,4 @@ npm run preview
 
 ## Recolor
 
-Colors live in `:root` in `src/styles/global.css`. The Tailwind theme reads those same variables through `@theme inline`. The banner image is `public/skyline-banner.png`.
+The shell is Sadgrl's Skyline stylesheet at `public/skyline.css` (the CodePen rules, with the banner pointed at `public/skyline-banner.png`). Colors are the `:root` variables in that file.

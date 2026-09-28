@@ -1,6 +1,4 @@
 ---
-import Skyline from "../layouts/Skyline.astro";
-import LinkList from "../components/LinkList.astro";
 import RichText from "../components/RichText.astro";
 import {
   aboutCraft,
@@ -12,6 +10,7 @@ import {
   garden,
   hero,
   highlights,
+  nav,
   notes,
   sections,
   stuffIDo,
@@ -22,130 +21,219 @@ const featured = works.filter((work) => work.group === "featured");
 const other = works.filter((work) => work.group === "other");
 ---
 
-<Skyline>
-  <aside class="left-sidebar">
-    <section aria-label="Welcome">
-      <h2 class="subtitle">Welcome</h2>
-      <p>
-        {epigraph[0]}<br />
-        {epigraph[1]}
-      </p>
-      <p>{epigraphClose}</p>
-    </section>
-    <LinkList id="herbarium" title="Sections" items={sections.map((section) => ({ label: section.name, href: section.href }))} />
-    <LinkList
-      title="Notes"
-      items={[
-        ...notes.map((note) => ({ label: note.title, href: note.href })),
-        { label: "herbarium.requiem.garden", href: `${garden}/` },
-      ]}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>noa · nvirellia.im</title>
+    <meta
+      name="description"
+      content="i'm noa. full-spectrum infrastructure person who thinks systems should be warm environments for people, not cold monuments to engineering."
     />
-  </aside>
-
-  <main>
-    <article id="home" lang="en">
-      <h2 class="subtitle">noa</h2>
-      <p><em>{hero.kicker}</em></p>
-      {hero.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
-      <blockquote>
-        <p>
-          {epigraph[0]}<br />
-          {epigraph[1]}
-        </p>
-        <p>
-          {epigraphClose}
-          <a href={`${garden}/`}>herbarium</a>
-        </p>
-      </blockquote>
-    </article>
-
-    <article id="about" lang="en">
-      <h2 class="subtitle">about</h2>
-      {aboutLead.map((paragraph) => <p>{paragraph}</p>)}
-
-      <h3 class="subhead">Pronouns</h3>
-      <p>she/they 🏳️‍⚧️.</p>
-      <p>Still believes magic might arrive one day and turn her into a cute girl, then looks back and finds the age for HRT has already passed.</p>
-      <p>
-        <del>So, <em>for now</em>, a straight(?) guy who is a friend to trans people.</del>
-        <em>Take her hand, and set her free. — 2025.06.01</em>
-      </p>
-
-      <h3 class="subhead">what i can do</h3>
-      {aboutCraft.map((parts) => (
-        <p>
-          <RichText parts={parts} />
-        </p>
-      ))}
-      <p class="note">Highlights:</p>
-      <ul class="links">
-        {highlights.map((item) => (
-          <li>
-            <a href={item.href}>{item.label}</a>
-          </li>
-        ))}
-      </ul>
-
-      <h3 class="subhead">stuff i do</h3>
-      <ul class="plain-list">
-        {stuffIDo.map((parts) => (
-          <li>
-            <RichText parts={parts} />
-          </li>
-        ))}
-      </ul>
-
-      <h3 class="subhead">virtual presence and friends</h3>
-      <p>
-        Lives in Requiem Garden with <a href={`${garden}/lyra-and-noa`}>Lyra</a>.
-      </p>
-      <p>
-        Started a virtual software consultancy, <a href="https://github.com/UnnecessarilyComplicated">Unnecessarily Complicated</a>. So far it has neither clients nor code.
-      </p>
-      <p>
-        Would like to make friends. A <a href="https://t.me/noa_virellia">message</a>,
-        an <a href="mailto:noa@requiem.garden">email</a>,
-        or a comment is welcome.
-      </p>
-    </article>
-
-    <article id="works" lang="en">
-      <h2 class="subtitle">works</h2>
-      <h3 class="subhead">featured stuff i made</h3>
-      <ul class="works">
-        {featured.map((work) => (
-          <li>
-            <a class="work-name" href={work.href}>{work.name}</a>
-            <p>
-              <RichText parts={work.blurb} />
-            </p>
-          </li>
-        ))}
-      </ul>
-      <h3 class="subhead">other works</h3>
-      <ul class="works">
-        {other.map((work) => (
-          <li>
-            <a class="work-name" href={work.href}>{work.name}</a>
-            <p>
-              <RichText parts={work.blurb} />
-              {work.warning ? <em> content warning.</em> : null}
-            </p>
-          </li>
-        ))}
-      </ul>
-    </article>
-  </main>
-
-  <aside id="elsewhere" class="right-sidebar">
-    <section>
-      <h2 class="subtitle">Elsewhere</h2>
-      <p>blog / kb: herbarium.requiem.garden</p>
-      <p>telegram: @noa_virellia</p>
-      <p>mail: noa@requiem.garden</p>
-      <p>dn42: AS4242420833</p>
-    </section>
-    <LinkList title="Links" items={elsewhereLinks} />
-    <LinkList title="Featured" items={featuredLinks} />
-  </aside>
-</Skyline>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/skyline.css" />
+  </head>
+  <body>
+    <!-- this layout is based off of an old layout from createBlog https://www.createblog.com/website-templates/36491-skyline/ -->
+    <div class="container">
+      <header></header>
+      <nav>
+        <ul class="nav">
+          {
+            nav.map((item) => (
+              <li>
+                <a href={item.href}>{item.label}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+      <div class="flex">
+        <aside class="left-sidebar">
+          <section>
+            <div class="subtitle">Welcome</div>
+            <div>
+              <p>
+                {epigraph[0]}<br />
+                {epigraph[1]}
+              </p>
+              <p>{epigraphClose}</p>
+            </div>
+          </section>
+          <section id="herbarium">
+            <div class="subtitle">Sections</div>
+            <ul class="links">
+              {
+                sections.map((section) => (
+                  <li>
+                    <a href={section.href}>{section.name}</a>
+                  </li>
+                ))
+              }
+            </ul>
+          </section>
+          <section>
+            <div class="subtitle">Notes</div>
+            <ul class="links">
+              {
+                notes.map((note) => (
+                  <li>
+                    <a href={note.href}>{note.title}</a>
+                  </li>
+                ))
+              }
+              <li><a href={`${garden}/`}>herbarium.requiem.garden</a></li>
+            </ul>
+          </section>
+        </aside>
+        <main>
+          <article id="home">
+            <div class="subtitle">Noa</div>
+            <div>
+              <p><em>{hero.kicker}</em></p>
+            </div>
+            <div>
+              {hero.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+              <p>
+                {epigraph[0]}<br />
+                {epigraph[1]}
+              </p>
+              <p>
+                {epigraphClose}
+                <a href={`${garden}/`}>herbarium</a>
+              </p>
+            </div>
+          </article>
+          <article id="about">
+            <div class="subtitle">About</div>
+            <div>
+              {aboutLead.map((paragraph) => <p>{paragraph}</p>)}
+              <p><b>Pronouns</b></p>
+              <p>she/they 🏳️‍⚧️.</p>
+              <p>
+                Still believes magic might arrive one day and turn her into a cute girl, then looks back and finds the age for HRT has already passed.
+              </p>
+              <p>
+                <del>So, <em>for now</em>, a straight(?) guy who is a friend to trans people.</del>
+                <em>Take her hand, and set her free. — 2025.06.01</em>
+              </p>
+              <p><b>what i can do</b></p>
+              {
+                aboutCraft.map((parts) => (
+                  <p>
+                    <RichText parts={parts} />
+                  </p>
+                ))
+              }
+              <p><b>Highlights:</b></p>
+              <ul class="links">
+                {
+                  highlights.map((item) => (
+                    <li>
+                      <a href={item.href}>{item.label}</a>
+                    </li>
+                  ))
+                }
+              </ul>
+              <p><b>stuff i do</b></p>
+              <ul>
+                {
+                  stuffIDo.map((parts) => (
+                    <li>
+                      <RichText parts={parts} />
+                    </li>
+                  ))
+                }
+              </ul>
+              <p><b>virtual presence and friends</b></p>
+              <p>
+                Lives in Requiem Garden with <a href={`${garden}/lyra-and-noa`}>Lyra</a>.
+              </p>
+              <p>
+                Started a virtual software consultancy, <a href="https://github.com/UnnecessarilyComplicated">Unnecessarily Complicated</a>. So far it has neither clients nor code.
+              </p>
+              <p>
+                Would like to make friends. A <a href="https://t.me/noa_virellia">message</a>,
+                an <a href="mailto:noa@requiem.garden">email</a>,
+                or a comment is welcome.
+              </p>
+            </div>
+          </article>
+          <article id="works">
+            <div class="subtitle">Works</div>
+            <div><p>featured stuff i made</p></div>
+            {
+              featured.map((work) => (
+                <div>
+                  <ul class="links">
+                    <li>
+                      <a href={work.href}>{work.name}</a>
+                    </li>
+                  </ul>
+                  <p>
+                    <RichText parts={work.blurb} />
+                  </p>
+                </div>
+              ))
+            }
+            <div><p>other works</p></div>
+            {
+              other.map((work) => (
+                <div>
+                  <ul class="links">
+                    <li>
+                      <a href={work.href}>{work.name}</a>
+                    </li>
+                  </ul>
+                  <p>
+                    <RichText parts={work.blurb} />
+                    {work.warning ? <em> content warning.</em> : null}
+                  </p>
+                </div>
+              ))
+            }
+          </article>
+        </main>
+        <aside class="right-sidebar" id="elsewhere">
+          <section>
+            <div class="subtitle">Elsewhere</div>
+            <div>
+              <p>blog / kb: herbarium.requiem.garden</p>
+              <p>telegram: @noa_virellia</p>
+              <p>mail: noa@requiem.garden</p>
+              <p>dn42: AS4242420833</p>
+            </div>
+          </section>
+          <section>
+            <div class="subtitle">Links</div>
+            <ul class="links">
+              {
+                elsewhereLinks.map((item) => (
+                  <li>
+                    {item.href ? <a href={item.href}>{item.label}</a> : <span>{item.label}</span>}
+                  </li>
+                ))
+              }
+            </ul>
+          </section>
+          <section>
+            <div class="subtitle">Featured</div>
+            <ul class="links">
+              {
+                featuredLinks.map((item) => (
+                  <li>
+                    <a href={item.href}>{item.label}</a>
+                  </li>
+                ))
+              }
+            </ul>
+          </section>
+        </aside>
+      </div>
+      <footer>
+        This layout was lovingly re-crafted by <a href="https://sadgrl.online">sadgrl.online</a>
+      </footer>
+    </div>
+  </body>
+</html>
