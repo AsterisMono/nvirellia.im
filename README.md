@@ -14,13 +14,13 @@ Xanga slots:
 
 | Slot | Content |
 | --- | --- |
-| Header | Links to home, about, works, herbarium, elsewhere, and the garden |
-| Profile box | Hero: name, garden, message, pronouns |
-| Works box | Featured and other works |
-| Herbarium box | Sections and a few note titles |
+| Header | Wayfinding: home, about, works, herbarium, elsewhere, weblog |
+| Profile box | Name, pronouns, the README one-liner, two or three crumbs |
+| Works box | Featured four, one line each, plus a short also-list |
+| Herbarium box | English sections and two or three note titles |
 | Elsewhere box | Garden, telegram, GitHub, mail, DN42 |
-| Journal | Hero, about, and the work blurbs |
-| Footer | Sadgrl's credit, plus the same elsewhere links |
+| Journal | One short welcome. The garden holds the rest |
+| Footer | Sadgrl's credit |
 
 ## Local
 

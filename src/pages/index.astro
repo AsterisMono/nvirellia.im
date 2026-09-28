@@ -1,22 +1,57 @@
 ---
-import RichText from "../components/RichText.astro";
 import {
-  aboutCraft,
-  aboutLead,
   epigraph,
   epigraphClose,
   garden,
-  hero,
-  highlights,
   notes,
   sections,
-  stuffIDo,
-  works,
 } from "../data/porch";
 
 const telegram = "https://t.me/noa_virellia";
 const github = "https://github.com/AsterisMono";
 const mail = "mailto:noa@requiem.garden";
+const talks = "https://www.youtube.com/watch?v=WLRRJjACyBs";
+
+const featured = [
+  {
+    name: "flake",
+    href: "https://github.com/AsterisMono/flake",
+    line: "my NixOS config",
+  },
+  {
+    name: "mimosa",
+    href: "https://github.com/AsterisMono/mimosa",
+    line: "Talos Linux and Terraform",
+  },
+  {
+    name: "aster",
+    href: "https://github.com/AsterisMono/aster",
+    line: "chromium with vertical tabs",
+  },
+  {
+    name: "reverie",
+    href: "https://github.com/AsterisMono/reverie",
+    line: "a quiet workstation",
+  },
+];
+
+const also = [
+  {
+    name: "sidebery-chromium",
+    href: "https://github.com/AsterisMono/Sidebery",
+  },
+  {
+    name: "astro-llm-translator",
+    href: "https://github.com/AsterisMono/astro-llm-translator",
+  },
+  {
+    name: "rimlight-protocol",
+    href: "https://github.com/AsterisMono/solana-workspace/tree/main/rimlight_protocol",
+    note: "content warning",
+  },
+];
+
+const blooms = notes.slice(0, 3);
 ---
 
 <!doctype html>
@@ -27,7 +62,7 @@ const mail = "mailto:noa@requiem.garden";
     <title>noa · nvirellia.im</title>
     <meta
       name="description"
-      content="i'm noa. full-spectrum infrastructure person who thinks systems should be warm environments for people, not cold monuments to engineering."
+      content="i'm noa. this porch is a thin door to the garden."
     />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/xanga.css" />
@@ -39,28 +74,39 @@ const mail = "mailto:noa@requiem.garden";
           <a href="#home">noa</a>: <a href="#home">home</a> - <a href="#about">about</a> - <a href="#works">works</a> - <a href="#herbarium">herbarium</a> - <a href="#elsewhere">elsewhere</a> - <a href={`${garden}/`}>weblog</a>
         </div>
         <div class="header-right">
-          <a href={github}>github</a> - <a href={telegram}>telegram</a> - <a href={mail}>mail</a> [ <a href={`${garden}/`}>garden</a> ]
+          <a href={github}>github</a> - <a href={telegram}>telegram</a> - <a href={mail}>mail</a>
         </div>
       </div>
       <div class="flex">
         <div class="left">
-          <div class="box" id="home">
+          <div class="box" id="about">
             <div class="boxwrap">
               <div class="subtitle"><strong>noa</strong></div>
-              <a href="#about">about</a><br />
-              <a href={`${garden}/`}>herbarium</a><br /><br />
-              <br />
-              <strong>Message:</strong> <a href={telegram}>message me</a><br /><br />
-              <strong>Pronouns:</strong> she/they
+              she/they<br /><br />
+              full-spectrum infrastructure person who thinks systems should be warm environments for people, not cold monuments to engineering.<br /><br />
+              immutable os. servers named after plants.<br />
+              <a href={talks}>nix meetup talks</a><br />
+              tending flowers in the wires.
             </div>
           </div>
           <div class="box" id="works">
             <div class="boxwrap">
               <div class="subtitle">Works</div>
               {
-                works.map((work) => (
+                featured.map((work) => (
+                  <>
+                    <a href={work.href}>{work.name}</a> — {work.line}
+                    <br />
+                  </>
+                ))
+              }
+              <br />
+              <div class="subtitle">also</div>
+              {
+                also.map((work) => (
                   <>
                     <a href={work.href}>{work.name}</a>
+                    {work.note ? ` (${work.note})` : null}
                     <br />
                   </>
                 ))
@@ -78,111 +124,45 @@ const mail = "mailto:noa@requiem.garden";
                   </>
                 ))
               }
-              <a class="blogring" href={notes[0].href}>{notes[0].title}</a>
+              <a class="blogring" href={blooms[0].href}>{blooms[0].title}</a>
               <div class="blogringLinks">
-                <a href={notes[1].href}>{notes[1].title}</a> - <a href={notes[2].href}>{notes[2].title}</a> - <a href={notes[3].href}>{notes[3].title}</a>
+                <a href={blooms[1].href}>{blooms[1].title}</a> - <a href={blooms[2].href}>{blooms[2].title}</a>
               </div>
-              <a href={notes[4].href}>{notes[4].title}</a><br />
-              <a href={notes[5].href}>{notes[5].title}</a><br />
             </div>
           </div>
           <div class="box" id="elsewhere">
             <div class="boxwrap">
               <div class="subtitle">Elsewhere</div>
               <a href={`${garden}/`}>herbarium.requiem.garden</a><br />
-              <a href={telegram}>@noa_virellia</a><br />
-              <a href={github}>GitHub</a><br />
+              <a href={telegram}>telegram @noa_virellia</a><br />
+              <a href={github}>GitHub AsterisMono</a><br />
               <a href={mail}>noa@requiem.garden</a><br />
-              <strong>dn42:</strong> AS4242420833
+              dn42 AS4242420833
             </div>
           </div>
         </div>
         <div class="right">
-          <div class="post" id="about">
-            <div class="date">{hero.kicker}</div>
-            <div class="title">noa</div>
+          <div class="post" id="home">
+            <div class="title">welcome</div>
             <div class="entry">
-              {hero.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+              <p>i'm noa. i want the systems around people to stay warm.</p>
+              <p>this porch is a thin door. the notes live in the garden, not here.</p>
               <p>
                 {epigraph[0]}<br />
                 {epigraph[1]}
               </p>
               <p>
-                {epigraphClose} <a href={`${garden}/`}>herbarium</a>
+                {epigraphClose}<br />
+                <a href={`${garden}/`}>herbarium.requiem.garden</a>
               </p>
-              {aboutLead.map((paragraph) => <p>{paragraph}</p>)}
-              <p><b>what i can do</b></p>
-              {
-                aboutCraft.map((parts) => (
-                  <p>
-                    <RichText parts={parts} />
-                  </p>
-                ))
-              }
-              <p><b>Highlights</b></p>
-              <p>
-                {
-                  highlights.map((item, index) => (
-                    <>
-                      {index > 0 ? " - " : null}
-                      <a href={item.href}>{item.label}</a>
-                    </>
-                  ))
-                }
-              </p>
-              <p><b>stuff i do</b></p>
-              {
-                stuffIDo.map((parts) => (
-                  <p>
-                    <RichText parts={parts} />
-                  </p>
-                ))
-              }
-              <p><b>virtual presence and friends</b></p>
-              <p>
-                Lives in Requiem Garden with <a href={`${garden}/lyra-and-noa`}>Lyra</a>.
-              </p>
-              <p>
-                Started a virtual software consultancy, <a href="https://github.com/UnnecessarilyComplicated">Unnecessarily Complicated</a>. So far it has neither clients nor code.
-              </p>
-              <p>
-                Would like to make friends. A <a href={telegram}>message</a>, an <a href={mail}>email</a>, or a comment is welcome.
-              </p>
-              <p><b>featured stuff i made</b></p>
-              {
-                works
-                  .filter((work) => work.group === "featured")
-                  .map((work) => (
-                    <p>
-                      <a href={work.href}>{work.name}</a>
-                      {" — "}
-                      <RichText parts={work.blurb} />
-                    </p>
-                  ))
-              }
-              <p><b>other works</b></p>
-              {
-                works
-                  .filter((work) => work.group === "other")
-                  .map((work) => (
-                    <p>
-                      <a href={work.href}>{work.name}</a>
-                      {" — "}
-                      <RichText parts={work.blurb} />
-                      {work.warning ? <em> content warning.</em> : null}
-                    </p>
-                  ))
-              }
             </div>
             <div class="postFooter">
-              <a href={`${garden}/`}>herbarium</a> - <a href={github}>GitHub</a> - <a href={telegram}>telegram</a> - <a href={mail}>email</a>
+              <a href={`${garden}/`}>herbarium.requiem.garden</a>
             </div>
           </div>
         </div>
       </div>
       <div class="footer">
-        <a href={github}>github</a> - <a href={telegram}>telegram</a> - <a href={`${garden}/`}>garden</a> - <a href={mail}>mail</a><br /><br />
-        dn42 AS4242420833<br /><br />
         This  layout was lovingly re-crafted by <a href="https://sadgrl.online/">sadgrl.online</a>
       </div>
     </div>
