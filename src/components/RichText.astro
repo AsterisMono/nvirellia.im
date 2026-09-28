@@ -1,0 +1,19 @@
+---
+import type { Rich } from "../data/porch";
+
+interface Props {
+  parts: Rich;
+}
+
+const { parts } = Astro.props;
+---
+
+{
+  parts.map((part) =>
+    typeof part === "string" ? (
+      part
+    ) : (
+      <a href={part.href}>{part.label}</a>
+    ),
+  )
+}

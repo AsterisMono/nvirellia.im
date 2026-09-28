@@ -1,0 +1,70 @@
+---
+import "../styles/global.css";
+import { nav } from "../data/porch";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "noa · nvirellia.im",
+  description = "i'm noa. full-spectrum infrastructure person who thinks systems should be warm environments for people, not cold monuments to engineering.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+  </head>
+  <body>
+    <header class="bg-header">
+      <img
+        src="/skyline-banner.png"
+        width="1041"
+        height="357"
+        alt="Skyline, a rescued layout by sadgrl.online"
+        class="block h-[200px] w-full object-cover object-center"
+      />
+    </header>
+    <nav class="border-y-2 border-line-strong bg-nav" aria-label="Skyline">
+      <ul class="my-2.5 flex list-none flex-wrap justify-center px-2">
+        {
+          nav.map((item) => (
+            <li class="px-4 py-0.5">
+              <a
+                href={item.href}
+                class="text-link uppercase tracking-wide no-underline hover:underline"
+                {...("external" in item && item.external ? { rel: "noreferrer" } : {})}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <div class="mx-auto mt-0 flex w-full max-w-[900px] max-[800px]:flex-wrap">
+      <slot />
+    </div>
+    <footer class="mx-auto max-w-[800px] px-5 py-6 text-center text-sidebar">
+      <p>
+        This layout was lovingly re-crafted by <a href="https://sadgrl.online">sadgrl.online</a>
+        from the <a href="https://www.createblog.com/website-templates/36491-skyline/">Skyline</a>
+        layout on CreateBlog.
+        <a href="https://codepen.io/sadness97/pen/jOaqGdZ">Skyline [R]</a>.
+      </p>
+      <p>
+        noa · <a href="https://github.com/AsterisMono">AsterisMono</a>
+      </p>
+    </footer>
+  </body>
+</html>

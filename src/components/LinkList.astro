@@ -1,0 +1,31 @@
+---
+interface Item {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  title: string;
+  items: Item[];
+  id?: string;
+}
+
+const { title, items, id } = Astro.props;
+---
+
+<section id={id} class="mb-2.5 min-w-0 max-[800px]:mb-0 max-[800px]:flex-1">
+  <h2 class="subtitle">{title}</h2>
+  <ul class="links">
+    {
+      items.map((item) => (
+        <li>
+          {item.href ? (
+            <a href={item.href}>{item.label}</a>
+          ) : (
+            <span>{item.label}</span>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+</section>

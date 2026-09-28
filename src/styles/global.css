@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+/* Sadgrl Skyline [R] tokens, from the rescued layout.
+   Recolor the porch by editing these variables. */
+:root {
+  --page-bg: #f4f4f4;
+  --header-bg: #f1f1f1;
+  --nav-bg: #f2f2f2;
+  --article-bg: #ededef;
+  --border-color: #e0e0e0;
+  --darker-border-color: #c6c6c6;
+  --sidebar-text-color: #6f7a79;
+  --article-text-color: #625f5f;
+  --article-heading-color: #929292;
+  --nav-link-color: #5f758c;
+  --link-hover-bg: #e6e8ea;
+}
+
+@theme inline {
+  --font-sans: Verdana, Geneva, "PingFang SC", "Noto Sans SC", "Noto Sans CJK SC",
+    "Microsoft YaHei", Tahoma, sans-serif;
+  --color-page: var(--page-bg);
+  --color-header: var(--header-bg);
+  --color-nav: var(--nav-bg);
+  --color-article: var(--article-bg);
+  --color-line: var(--border-color);
+  --color-line-strong: var(--darker-border-color);
+  --color-sidebar: var(--sidebar-text-color);
+  --color-body: var(--article-text-color);
+  --color-heading: var(--article-heading-color);
+  --color-link: var(--nav-link-color);
+  --color-link-hover: var(--link-hover-bg);
+}
+
+@layer base {
+  html {
+    background: var(--page-bg);
+    font-size: 12px;
+  }
+
+  body {
+    margin: 0;
+    background: var(--page-bg);
+    color: var(--article-text-color);
+    font-family: var(--font-sans);
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  a {
+    color: var(--nav-link-color);
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  p {
+    margin: 0.55em 0;
+  }
+}
+
+@layer components {
+  .subtitle {
+    margin: 0 0 8px;
+    border: 1px solid var(--darker-border-color);
+    background: var(--nav-bg);
+    padding: 2px 6px;
+    color: var(--article-text-color);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 1.4;
+  }
+
+  article .subtitle {
+    margin: 10px 5px;
+    color: var(--article-heading-color);
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+
+  .links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .links li {
+    margin-bottom: 3px;
+    border: 1px solid var(--border-color);
+    background: var(--nav-bg);
+  }
+
+  .links li:hover {
+    background: var(--link-hover-bg);
+  }
+
+  .links a,
+  .links span {
+    display: block;
+    padding: 2px 6px;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .links a:hover {
+    text-decoration: none;
+  }
+
+  .work-name {
+    display: block;
+    margin-bottom: 3px;
+    border: 1px solid var(--darker-border-color);
+    background: var(--nav-bg);
+    padding: 2px 6px;
+    color: var(--article-heading-color);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    text-transform: lowercase;
+  }
+
+  .work-name:hover {
+    background: var(--link-hover-bg);
+    text-decoration: none;
+  }
+}
