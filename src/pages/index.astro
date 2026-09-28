@@ -23,10 +23,8 @@ const other = works.filter((work) => work.group === "other");
 ---
 
 <Skyline>
-  <aside
-    class="mt-[30px] w-[250px] shrink-0 text-sidebar max-[900px]:mx-5 max-[900px]:flex max-[900px]:w-[calc(100%-2.5rem)] max-[900px]:gap-2.5 max-[640px]:flex-col"
-  >
-    <section class="mb-2.5 min-w-0 max-[900px]:mb-0 max-[900px]:flex-1" aria-label="Welcome">
+  <aside class="left-sidebar">
+    <section aria-label="Welcome">
       <h2 class="subtitle">Welcome</h2>
       <p>
         {epigraph[0]}<br />
@@ -44,12 +42,12 @@ const other = works.filter((work) => work.group === "other");
     />
   </aside>
 
-  <main class="mx-5 min-w-0 flex-1 max-[900px]:w-[calc(100%-2.5rem)] max-[900px]:flex-none">
-    <article id="home" class="mb-[15px] border border-line-strong bg-article p-2.5 text-body" lang="en">
+  <main>
+    <article id="home" lang="en">
       <h2 class="subtitle">noa</h2>
       <p><em>{hero.kicker}</em></p>
       {hero.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
-      <blockquote class="mx-[5px] my-3 border-l-2 border-line-strong pl-3 text-sidebar">
+      <blockquote>
         <p>
           {epigraph[0]}<br />
           {epigraph[1]}
@@ -61,11 +59,11 @@ const other = works.filter((work) => work.group === "other");
       </blockquote>
     </article>
 
-    <article id="about" class="mb-[15px] border border-line-strong bg-article p-2.5 text-body" lang="en">
+    <article id="about" lang="en">
       <h2 class="subtitle">about</h2>
       {aboutLead.map((paragraph) => <p>{paragraph}</p>)}
 
-      <h3 class="mt-3 mb-1 px-[5px] font-bold tracking-wide text-heading">Pronouns</h3>
+      <h3 class="subhead">Pronouns</h3>
       <p>she/they 🏳️‍⚧️.</p>
       <p>Still believes magic might arrive one day and turn her into a cute girl, then looks back and finds the age for HRT has already passed.</p>
       <p>
@@ -73,13 +71,13 @@ const other = works.filter((work) => work.group === "other");
         <em>Take her hand, and set her free. — 2025.06.01</em>
       </p>
 
-      <h3 class="mt-3 mb-1 px-[5px] font-bold tracking-wide text-heading">what i can do</h3>
+      <h3 class="subhead">what i can do</h3>
       {aboutCraft.map((parts) => (
         <p>
           <RichText parts={parts} />
         </p>
       ))}
-      <p class="px-[5px] font-bold">Highlights:</p>
+      <p class="note">Highlights:</p>
       <ul class="links">
         {highlights.map((item) => (
           <li>
@@ -88,8 +86,8 @@ const other = works.filter((work) => work.group === "other");
         ))}
       </ul>
 
-      <h3 class="mt-3 mb-1 px-[5px] font-bold tracking-wide text-heading" lang="en">stuff i do</h3>
-      <ul class="mx-[5px] list-disc pl-4" lang="en">
+      <h3 class="subhead">stuff i do</h3>
+      <ul class="plain-list">
         {stuffIDo.map((parts) => (
           <li>
             <RichText parts={parts} />
@@ -97,7 +95,7 @@ const other = works.filter((work) => work.group === "other");
         ))}
       </ul>
 
-      <h3 class="mt-3 mb-1 px-[5px] font-bold tracking-wide text-heading">virtual presence and friends</h3>
+      <h3 class="subhead">virtual presence and friends</h3>
       <p>
         Lives in Requiem Garden with <a href={`${garden}/lyra-and-noa`}>Lyra</a>.
       </p>
@@ -111,25 +109,25 @@ const other = works.filter((work) => work.group === "other");
       </p>
     </article>
 
-    <article id="works" class="mb-[15px] border border-line-strong bg-article p-2.5 text-body" lang="en">
+    <article id="works" lang="en">
       <h2 class="subtitle">works</h2>
-      <h3 class="mt-1 mb-2 px-[5px] font-bold tracking-wide text-heading">featured stuff i made</h3>
-      <ul class="m-0 grid list-none gap-2.5 p-0">
+      <h3 class="subhead">featured stuff i made</h3>
+      <ul class="works">
         {featured.map((work) => (
           <li>
             <a class="work-name" href={work.href}>{work.name}</a>
-            <p class="mx-[5px]">
+            <p>
               <RichText parts={work.blurb} />
             </p>
           </li>
         ))}
       </ul>
-      <h3 class="mt-3 mb-2 px-[5px] font-bold tracking-wide text-heading">other works</h3>
-      <ul class="m-0 grid list-none gap-2.5 p-0">
+      <h3 class="subhead">other works</h3>
+      <ul class="works">
         {other.map((work) => (
           <li>
             <a class="work-name" href={work.href}>{work.name}</a>
-            <p class="mx-[5px]">
+            <p>
               <RichText parts={work.blurb} />
               {work.warning ? <em> content warning.</em> : null}
             </p>
@@ -139,11 +137,8 @@ const other = works.filter((work) => work.group === "other");
     </article>
   </main>
 
-  <aside
-    id="elsewhere"
-    class="mt-[30px] w-[250px] shrink-0 text-sidebar max-[900px]:mx-5 max-[900px]:flex max-[900px]:w-[calc(100%-2.5rem)] max-[900px]:gap-2.5 max-[640px]:flex-col"
-  >
-    <section class="mb-2.5 min-w-0 max-[900px]:mb-0 max-[900px]:flex-1" lang="en">
+  <aside id="elsewhere" class="right-sidebar">
+    <section>
       <h2 class="subtitle">Elsewhere</h2>
       <p>blog / kb: herbarium.requiem.garden</p>
       <p>telegram: @noa_virellia</p>
