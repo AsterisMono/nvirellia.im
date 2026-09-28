@@ -45,6 +45,7 @@
     font-family: var(--font-sans);
     font-size: 12px;
     line-height: 1.45;
+    overflow-wrap: break-word;
   }
 
   a {

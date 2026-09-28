@@ -26,13 +26,13 @@ const {
     <meta property="og:type" content="website" />
   </head>
   <body>
-    <header class="bg-header">
+    <header class="flex h-[220px] items-center justify-center overflow-hidden bg-header">
       <img
         src="/skyline-banner.png"
         width="1041"
         height="357"
         alt="Skyline, a rescued layout by sadgrl.online"
-        class="block h-[200px] w-full object-cover object-center"
+        class="max-h-[220px] w-auto max-w-full"
       />
     </header>
     <nav class="border-y-2 border-line-strong bg-nav" aria-label="Skyline">
@@ -52,7 +52,7 @@ const {
         }
       </ul>
     </nav>
-    <div class="mx-auto mt-0 flex w-full max-w-[900px] max-[800px]:flex-wrap">
+    <div class="mx-auto mt-0 flex w-full max-w-[900px] max-[900px]:flex-wrap">
       <slot />
     </div>
     <footer class="mx-auto max-w-[800px] px-5 py-6 text-center text-sidebar">
