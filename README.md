@@ -1,6 +1,6 @@
 # nvirellia.im
 
-Noa's porch. One static Astro page, laid out as Sadgrl's [Skyline [R]](https://codepen.io/sadness97/pen/jOaqGdZ) (a rescued [Skyline](https://www.createblog.com/website-templates/36491-skyline/) layout from CreateBlog).
+Noa's porch. One static Astro page, laid out as Sadgrl's [Xanga Classic [R]](https://codepen.io/sadness97/pen/VwzePpB).
 
 The page uses only what is already public:
 
@@ -10,15 +10,17 @@ The page uses only what is already public:
 
 Full notes stay on the garden. The porch lists sections and a few titles, and links out. The live page is English. Chinese source lines are short paraphrases.
 
-Skyline regions:
+Xanga slots:
 
-| Region | Content |
+| Slot | Content |
 | --- | --- |
-| Banner | The Skyline chrome |
-| Nav: Home / Site / Content / About / Blog / Info | Hero, works, herbarium, about, the garden, elsewhere |
-| Left column | Welcome epigraph, sections, note titles |
-| Center | Hero, about, works |
-| Right column | Elsewhere, links, featured works |
+| Header | Links to home, about, works, herbarium, elsewhere, and the garden |
+| Profile box | Hero: name, garden, message, pronouns |
+| Works box | Featured and other works |
+| Herbarium box | Sections and a few note titles |
+| Elsewhere box | Garden, telegram, GitHub, mail, DN42 |
+| Journal | Hero, about, and the work blurbs |
+| Footer | Sadgrl's credit, plus the same elsewhere links |
 
 ## Local
 
@@ -40,4 +42,4 @@ npm run preview
 
 ## Recolor
 
-The shell is Sadgrl's Skyline stylesheet at `public/skyline.css` (the CodePen rules, with the banner pointed at `public/skyline-banner.png`). Colors are the `:root` variables in that file.
+The shell is Sadgrl's Xanga Classic stylesheet at `public/xanga.css`. Colors and type are the `:root` variables in that file.
