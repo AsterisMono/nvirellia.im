@@ -1,43 +1,43 @@
 # nvirellia.im
 
-Noa 的门廊站。单页，Astro 静态输出，版式移植自 Sadgrl 的 [Skyline [R]](https://codepen.io/sadness97/pen/jOaqGdZ)（CreateBlog 的 [Skyline](https://www.createblog.com/website-templates/36491-skyline/) 抢救版）。
+Noa's porch. One static Astro page, laid out as Sadgrl's [Skyline [R]](https://codepen.io/sadness97/pen/jOaqGdZ) (a rescued [Skyline](https://www.createblog.com/website-templates/36491-skyline/) layout from CreateBlog).
 
-页面只使用公开来源里已经写过的话和链接：
+The page uses only what is already public:
 
-- GitHub 个人主页 README：[AsterisMono/AsterisMono](https://github.com/AsterisMono/AsterisMono)
-- 植物标本室：[herbarium.requiem.garden](https://herbarium.requiem.garden/) 与 [AsterisMono/herbarium](https://github.com/AsterisMono/herbarium)（`关于我.md`、分区目录、若干笔记标题）
-- 上述 README 里点名的 featured / other 作品
+- GitHub profile README: [AsterisMono/AsterisMono](https://github.com/AsterisMono/AsterisMono)
+- The herbarium: [herbarium.requiem.garden](https://herbarium.requiem.garden/) and [AsterisMono/herbarium](https://github.com/AsterisMono/herbarium) (the about note, section folders, and a few note titles)
+- Featured and other works named in that README
 
-完整笔记留在标本室。门廊只放分区和几篇标题，点出去。
+Full notes stay on the garden. The porch lists sections and a few titles, and links out. The live page is English. Chinese source lines are short paraphrases.
 
-Skyline 区域对应关系：
+Skyline regions:
 
-| 区域 | 内容 |
+| Region | Content |
 | --- | --- |
-| 顶栏横幅 | Skyline 版式本身 |
-| 导航 Home / Site / Content / About / Blog / Info | 英雄区、作品、标本室、关于、标本室全文、别处 |
-| 左栏 | 欢迎题词、分区、笔记标题 |
-| 中栏 | 英雄区、关于、作品 |
-| 右栏 | 别处、链接、featured 作品 |
+| Banner | The Skyline chrome |
+| Nav: Home / Site / Content / About / Blog / Info | Hero, works, herbarium, about, the garden, elsewhere |
+| Left column | Welcome epigraph, sections, note titles |
+| Center | Hero, about, works |
+| Right column | Elsewhere, links, featured works |
 
-## 本地
+## Local
 
-需要 Node.js 22 或更新版本。
+Node.js 22 or newer.
 
 ```bash
 npm install
 npm run dev
 ```
 
-开发服务器默认在 <http://localhost:4321>。
+The dev server defaults to <http://localhost:4321>.
 
 ```bash
 npm run build
 npm run preview
 ```
 
-`npm run build` 生成完全静态的 `dist/`。把这个目录交给任意静态托管即可（Cloudflare Pages、GitHub Pages、nginx）。站点地址写在 `astro.config.mjs` 的 `site`，默认 `https://nvirellia.im`。
+`npm run build` writes a static site to `dist/`. Host that directory anywhere static (Cloudflare Pages, GitHub Pages, nginx). The canonical URL is `site` in `astro.config.mjs`, default `https://nvirellia.im`.
 
-## 改颜色
+## Recolor
 
-颜色集中在 `src/styles/global.css` 的 `:root`。Tailwind 主题用 `@theme inline` 引用同一组变量，改一处，栏、字和链接一起变。横幅图是 `public/skyline-banner.png`。
+Colors live in `:root` in `src/styles/global.css`. The Tailwind theme reads those same variables through `@theme inline`. The banner image is `public/skyline-banner.png`.

@@ -1,8 +1,9 @@
 /**
  * Porch copy, taken only from public sources on 2026-09-28:
  * - https://github.com/AsterisMono/AsterisMono (profile README)
- * - https://github.com/AsterisMono/herbarium (关于我.md + section folders)
+ * - https://github.com/AsterisMono/herbarium (about page + section folders)
  * - https://herbarium.requiem.garden/ (welcome epigraph + live note URLs)
+ * Chinese source lines are short English paraphrases. Note links stay on the garden.
  * No extra projects.
  */
 
@@ -21,9 +22,11 @@ export const nav = [
 ] as const;
 
 export const epigraph = [
-  "如果有一天我忘记了自己是怎样走到这里的，",
-  "希望这些记录还能替我记得。",
+  "If a day comes when I forget how I got here,",
+  "I hope these records still remember for me.",
 ] as const;
+
+export const epigraphClose = "Shine freely.";
 
 export const hero = {
   kicker: "Immutable foundations. For the post-modern age.",
@@ -34,23 +37,27 @@ export const hero = {
 };
 
 export const aboutLead = [
-  "Noa Virellia，INFP-T。Tending flowers in the wires.",
-  "超级家里蹲，前 VRChat 永居资格持有者，温柔而坚定的缅因猫。",
-  "我关心系统是否优雅、边界是否清晰，也关心人在系统中的位置是否被温柔对待。",
+  "Noa Virellia, INFP-T. Tending flowers in the wires.",
+  "A homebody through and through, a former VRChat permanent resident, and a gentle, steady Maine Coon.",
+  "I care whether a system is elegant and its boundaries are clear, and whether the people in it are treated gently.",
 ];
 
 export const aboutCraft: Rich[] = [
-  ["TypeScript 全栈。在 AGI 的潮水真正漫过来之前，暂时选择与浪共存。"],
-  ["Junior DevOps，GitOps 实践者。相信“能被完整重建的系统，才配被长期依赖”。"],
+  ["Full-stack TypeScript. Until the tide of AGI actually comes in, living with the waves for now."],
   [
-    "NixOS 用户，NixCN 工作组成员，NixCN Meetup #1 Speaker & NixCN Meetup #2 Staff。只维护",
+    "Junior DevOps, and a GitOps practitioner. A system deserves long trust only if it can be rebuilt in full.",
+  ],
+  [
+    "A NixOS user, NixCN working-group member, speaker at NixCN Meetup #1, and staff for NixCN Meetup #2. A Nixpkgs contributor who maintains ",
     {
-      label: "一个包",
+      label: "one package",
       href: "https://github.com/NixOS/nixpkgs/blob/master/pkgs/by-name/sq/sqlitestudio/package.nix",
     },
-    "的 Nixpkgs Contributor。",
+    ".",
   ],
-  ["偶尔会给开源软件修点 bug 开点 PR，尤其喜欢在陌生的代码库里抽丝剥茧定位问题。"],
+  [
+    "Sometimes fixes bugs and opens pull requests in open source, and likes tracing a problem through an unfamiliar codebase.",
+  ],
 ];
 
 export const highlights: { label: string; href: string }[] = [
@@ -170,23 +177,23 @@ export const works: Work[] = [
 
 /** Section folders in AsterisMono/herbarium. Each links to that section's note on the garden. */
 export const sections: { name: string; href: string }[] = [
-  { name: "⎈ Kubernetes", href: `${garden}/standalone-pvc-migrate-to-pvc-template` },
-  { name: "🌄 文学", href: `${garden}/falling-light` },
-  { name: "🌐 网络", href: `${garden}/openwrt-mwan3` },
-  { name: "🐧 Linux", href: `${garden}/nanopi-r2s-nixos` },
-  { name: "👷 动手做", href: `${garden}/tailscale-mysterious-derper-bug` },
-  { name: "📒 杂记", href: `${garden}/vllm-serve` },
-  { name: "🔧 工具", href: `${garden}/vim-tips-and-tricks` },
+  { name: "Kubernetes", href: `${garden}/standalone-pvc-migrate-to-pvc-template` },
+  { name: "Literature", href: `${garden}/falling-light` },
+  { name: "Networks", href: `${garden}/openwrt-mwan3` },
+  { name: "Linux", href: `${garden}/nanopi-r2s-nixos` },
+  { name: "Making", href: `${garden}/tailscale-mysterious-derper-bug` },
+  { name: "Miscellany", href: `${garden}/vllm-serve` },
+  { name: "Tools", href: `${garden}/vim-tips-and-tricks` },
 ];
 
-/** A few note titles. The rest of the garden stays on the garden. */
+/** A few note titles, paraphrased. The notes themselves stay on the garden. */
 export const notes: { title: string; href: string }[] = [
-  { title: "坠光", href: `${garden}/falling-light` },
-  { title: "她为我取名的那一天 —— 我和 Noa 的相遇", href: `${garden}/lyra-and-noa` },
-  { title: "折叠：2023 年 2 月", href: `${garden}/folded-2023` },
-  { title: "在 NanoPi R2S 上运行 NixOS", href: `${garden}/nanopi-r2s-nixos` },
-  { title: "用 systemd.timer 实现萌萌服药提醒", href: `${garden}/systemd-hrt-reminder` },
-  { title: "Vim 使用技巧", href: `${garden}/vim-tips-and-tricks` },
+  { title: "Falling light", href: `${garden}/falling-light` },
+  { title: "The day she named me", href: `${garden}/lyra-and-noa` },
+  { title: "Folded: February 2023", href: `${garden}/folded-2023` },
+  { title: "NixOS on a NanoPi R2S", href: `${garden}/nanopi-r2s-nixos` },
+  { title: "A systemd timer for taking meds", href: `${garden}/systemd-hrt-reminder` },
+  { title: "Vim tips", href: `${garden}/vim-tips-and-tricks` },
 ];
 
 export const elsewhereLinks: { label: string; href?: string }[] = [
